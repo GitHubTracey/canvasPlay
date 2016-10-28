@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Drawing App!</title>
+    <link rel="stylesheet" href="master.css"
+</head>
+<!--margin: 0 - remove scrollbars-->
+<body style='margin:0'>
+    <div id="toolbar">
+        <div id="rad">
+            Radius <span id="radval">10</span>
+            <div id="decrad" class="radcontrol">-</div>
+            <div id="incrad" class="radcontrol">+</div>
+        </div>
+        <div id="colors">
+            <!--get colors from colors.js => add new colors to list at the top-->
+        </div>
+    </div>
+<!--margin: 0 - only works when canvas style is display:block-->
+    <canvas id="canvas" style="display:block">
+        Sorry, your browser does not support Canvas.
+    </canvas>
+    <script src="main.js"></script> <!--must be declared first-->
+    <script src="radius.js"></script> <!--radius is called within main, and has to be provided after -->
+    <script src="colors.js"></script> 
+</body>
+</html>
