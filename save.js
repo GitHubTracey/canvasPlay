@@ -11,7 +11,10 @@ function saveImage() {
         //status == http code - 200 OK
         if( request.readyState == 4 && request.status == 200) {
             var response = request.responseText
-            window.open('download.php?file='+response, '_blank', 'location=0, menubar=0' )
+            
+            // window.open works for iPhone
+            //window.open('download.php?file='+response, '_blank', 'location=0, menubar=0' )
+            document.getElementById('downloadframe').src = 'download.php?file='+response;
         }
     }
 

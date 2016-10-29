@@ -71,3 +71,11 @@
 #save:hover{
     background-color: #818181;
 }
+/* download file with no popup window - seamless*/
+#downloadframe{
+    background-color: transparent;
+    border: 0px none transparent;
+    padding: 0px;
+    overflow: hidden;
+    visibility: hidden;
+}
