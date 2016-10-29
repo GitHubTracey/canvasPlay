@@ -15,13 +15,17 @@
         <div id="colors">
             <!--get colors from colors.js => add new colors to list at the top-->
         </div>
+        <div id="save">
+            Save
+        </div>
     </div>
 <!--margin: 0 - only works when canvas style is display:block-->
     <canvas id="canvas" style="display:block">
         Sorry, your browser does not support Canvas.
     </canvas>
-    <script src="main.js"></script> <!--must be declared first-->
-    <script src="radius.js"></script> <!--radius is called within main, and has to be provided after -->
-    <script src="colors.js"></script> 
+    <script src="main.js"></script> <!--must be declared first, all following scripst are provided after-->
+    <script src="radius.js"></script>       <!--drawing-->
+    <script src="colors.js"></script>       <!--colors-->
+    <script src="save.js"></script>         save
 </body>
 </html>

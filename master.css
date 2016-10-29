@@ -60,3 +60,14 @@
 }
 
 
+
+#save{
+    float: right;
+    margin-right: 20px;
+    height: 30px;
+    padding: 8px;
+    background-color: #434343;
+}
+#save:hover{
+    background-color: #818181;
+}
