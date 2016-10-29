@@ -3,8 +3,32 @@ var context = canvas.getContext('2d');
 
 var radius = 10
 var dragging = false    //whether the user is currently holding down the mouse 
+
 canvas.width  = window.innerWidth
 canvas.height = window.innerHeight
+
+// resizing the window automatically clears the canvas (by design)
+// so we can do the following to save and then reset the width and height 
+// as to what the user can manipulate.
+window.onresize = () => {
+    var image = context.getImageData(0,0, canvas.width, canvas.height)
+    canvas.width  = window.innerWidth
+    canvas.height = window.innerHeight
+    context.putImageData(image, 0,0)
+canvas.addEventListener('mousedown', engage)
+canvas.addEventListener('mouseup', disengage)
+canvas.addEventListener('mousemove', putCirclePoint)
+}
+
+// utilizes the design that resizing clears the view
+//clearRect(0, 0, canvas.width, canvas.height) could also work, but extremely slow.
+function clearCanvas(canvas) {
+    canvas.width = canvas.width;
+}
+// could also implement a "virtual" canvas (one that is never presented to the dom 
+// to maintain the state without interrupting the flow 
+// var virtualCanvas = document.createElement('canvas')
+// var virtualContext = virtual....
 
 context.lineWidth = radius*2    //radius is half the width of circle
 
