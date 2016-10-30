@@ -15,9 +15,6 @@ window.onresize = () => {
     canvas.width  = window.innerWidth
     canvas.height = window.innerHeight
     context.putImageData(image, 0,0)
-canvas.addEventListener('mousedown', engage)
-canvas.addEventListener('mouseup', disengage)
-canvas.addEventListener('mousemove', putCirclePoint)
 }
 
 // utilizes the design that resizing clears the view

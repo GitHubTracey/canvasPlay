@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      window.requestAnimFrame = (function(callback) {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function(callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+      })();
+
+     
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = 'http://static.tumblr.com/3ee5e55b5c6fdb4df4786d9a5e71db09/dfsz7kc/EGSnsyar9/tumblr_static_d783bysip2ossw08o8wok04o4.jpg'; //img
+
+    var ang = 0; //angle
+    var fps = 1000 / 25; //number of frames per sec
+    img.onload = function () { //on image load do the following stuff
+        canvas.width = this.width << 1; //double the canvas width
+        canvas.height = this.height << 1; //double the canvas height
+        var cache = this; //cache the local copy of image element for future reference
+        setInterval(function () {
+            ctx.save(); //saves the state of canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height); //clear the canvas
+            ctx.translate(cache.width, cache.height); //let's translate
+            ctx.rotate(Math.PI / 180 * (ang += 1)); //increment the angle and rotate the image 
+            ctx.drawImage(img, -cache.width / 2, -cache.height / 2, cache.width, cache.height); //draw the image ;)
+            ctx.restore(); //restore the state of canvas
+        }, fps);
+    };
+
+    </script>
+  </body>
+</html> 

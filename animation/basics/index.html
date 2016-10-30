@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script>
+        var c,canvas;
+        var fps = 60; //more frames = faster & smoother
+        window.onload = function() {
+            canvas = document.getElementById("canvas")
+            c = canvas.getContext("2d")
+
+            loop();
+        }
+
+        var i = 0;
+        var initSize = 50;
+        var minSize = 20;
+        var frames = 120; // higher = slower
+        
+        function loop() {
+            setTimeout(function(){
+                i++;
+                c.clearRect(0,0,500,500);
+                c.beginPath();
+                c.fillStyle = "#000";
+                if( i < frames) {
+                    c.arc(i,i, initSize - ((initSize-minSize)/frames)*i, 0, Math.PI*2, true);
+                }else{
+                    c.arc(i,i, minSize, 0, Math.PI*2, true);
+                }
+                c.closePath();
+                c.fill();
+                loop();
+            }, 1000/fps)
+        }
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+</body>
+</html>
